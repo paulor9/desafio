@@ -1,7 +1,8 @@
-package com.pra.desafio.dao.categories;
+package com.pra.desafio.dao.categories.jdbc;
 
 
 
+import com.pra.desafio.dao.categories.CategoriesDAO;
 import com.pra.desafio.dto.CategoriesDTO;
 import com.pra.desafio.exception.CategoryNotFoundException;
 import com.pra.desafio.exception.UserNotFoundException;

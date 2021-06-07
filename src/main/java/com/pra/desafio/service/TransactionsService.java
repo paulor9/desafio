@@ -1,9 +1,9 @@
 package com.pra.desafio.service;
 
-import com.pra.desafio.dao.accounts.AccountsDAO;
+import com.pra.desafio.dao.accounts.jdbc.AccountsDAO;
 import com.pra.desafio.dao.categories.CategoriesDAO;
 import com.pra.desafio.dao.transactions.TransactionsDAO;
-import com.pra.desafio.dao.transactions.TransactionsDAOImp;
+import com.pra.desafio.dao.transactions.jdbc.TransactionsDAOImp;
 import com.pra.desafio.dto.AccountsDTO;
 import com.pra.desafio.dto.StringDateDTO;
 import com.pra.desafio.dto.TransactionsDTO;

@@ -1,4 +1,4 @@
-package com.pra.desafio.dao.categories;
+package com.pra.desafio.dao.categories.jdbc;
 
 
 import com.pra.desafio.dto.CategoriesDTO;

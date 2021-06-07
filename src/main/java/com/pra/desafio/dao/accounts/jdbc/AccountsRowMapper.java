@@ -1,4 +1,4 @@
-package com.pra.desafio.dao.accounts;
+package com.pra.desafio.dao.accounts.jdbc;
 
 import com.pra.desafio.dto.AccountsDTO;
 import org.springframework.jdbc.core.RowMapper;

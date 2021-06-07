@@ -1,5 +1,6 @@
-package com.pra.desafio.dao.users;
+package com.pra.desafio.dao.users.jdbc;
 
+import com.pra.desafio.dao.users.UsersDAO;
 import com.pra.desafio.dto.UsersDTO;
 import com.pra.desafio.exception.UserNotFoundException;
 import org.slf4j.Logger;
@@ -16,7 +17,7 @@ import java.sql.Statement;
 import java.util.List;
 
 @Component
-public class UsersDAOImp implements UsersDAO{
+public class UsersDAOImp implements UsersDAO {
     private static final Logger logger = LoggerFactory.getLogger(UsersDAOImp.class);
     private static final String QUERY_ALL_USERS= "SELECT * FROM `desafio`.`users` ";
     private static final String QUERY_USER_BY_ID= "SELECT * FROM desafio.users WHERE user_id = ? ";

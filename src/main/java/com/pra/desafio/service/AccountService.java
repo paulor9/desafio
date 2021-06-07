@@ -1,7 +1,7 @@
 package com.pra.desafio.service;
 
 
-import com.pra.desafio.dao.accounts.AccountsDAO;
+import com.pra.desafio.dao.accounts.jdbc.AccountsDAO;
 import com.pra.desafio.dao.users.UsersDAO;
 import com.pra.desafio.dto.AccountsDTO;
 import com.pra.desafio.exception.AccountNotFoundException;

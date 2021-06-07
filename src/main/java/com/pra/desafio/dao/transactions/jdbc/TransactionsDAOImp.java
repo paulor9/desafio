@@ -1,5 +1,6 @@
-package com.pra.desafio.dao.transactions;
+package com.pra.desafio.dao.transactions.jdbc;
 
+import com.pra.desafio.dao.transactions.TransactionsDAO;
 import com.pra.desafio.dto.StringDateDTO;
 import com.pra.desafio.dto.TransactionsDTO;
 import com.pra.desafio.exception.AccountNotFoundException;
@@ -43,7 +44,7 @@ public class TransactionsDAOImp implements TransactionsDAO {
             return ps;
         };
         logger.debug("query {} ", QUERY_ALL_TRANSACTIONS_BY_ACCOUNT );
-        logger.debug("Account ID {}", accountID);
+        logger.debug(" account ID {}", accountID);
         return  jdbcTemplate.query(psc, new TransactionsRowMapper());
 
    }

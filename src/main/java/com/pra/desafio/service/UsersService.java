@@ -2,7 +2,7 @@ package com.pra.desafio.service;
 
 
 import com.pra.desafio.dao.users.UsersDAO;
-import com.pra.desafio.dao.users.UsersDAOImp;
+import com.pra.desafio.dao.users.jdbc.UsersDAOImp;
 import com.pra.desafio.dto.UsersDTO;
 import com.pra.desafio.exception.UserNotFoundException;
 import org.springframework.stereotype.Component;

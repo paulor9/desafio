@@ -1,6 +1,8 @@
 package com.pra.desafio.dao.accounts;
 
 
+import com.pra.desafio.dao.accounts.jdbc.AccountsDAO;
+import com.pra.desafio.dao.accounts.jdbc.AccountsRowMapper;
 import com.pra.desafio.dto.AccountsDTO;
 import com.pra.desafio.exception.AccountNotFoundException;
 import org.slf4j.Logger;

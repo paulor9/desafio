@@ -1,4 +1,4 @@
-package com.pra.desafio.dao.transactions;
+package com.pra.desafio.dao.transactions.jdbc;
 
 import com.pra.desafio.dto.TransactionsDTO;
 import org.springframework.jdbc.core.RowMapper;
