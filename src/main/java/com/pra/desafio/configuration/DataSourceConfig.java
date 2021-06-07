@@ -18,15 +18,20 @@ public class DataSourceConfig {
 
 
     @Bean
+
     /*
+        Neste ponto devemos implenatr a busca das credenciais do BD  de forma  segura :
+         Ex  Openshift  Secret , Cyberark etc
+         Colocar credencias de banco de dados no codigo fonte é uma falha grave de segurança
 
      */
+
     public DataSource dataSource() {
         var dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost/estudos");
-        dataSource.setUsername("root");
-        dataSource.setPassword("Marina2009");
+        // dataSource.setUsername("root");
+        // dataSource.setPassword("Marina2009");
         return dataSource;
     }
 
