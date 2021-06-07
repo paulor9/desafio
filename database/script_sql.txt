@@ -1,0 +1,52 @@
+
+
+CREATE SCHEMA `desafio` DEFAULT CHARACTER SET utf8 ;
+
+
+CREATE TABLE `desafio`.`users` (
+  `user_id` INT(11) NOT NULL AUTO_INCREMENT ,
+  `name` VARCHAR(255) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`user_id`),
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE);
+
+INSERT INTO `desafio`.`users`( `name`, `email`) values ( "PAULO RICARDO ASSUMPÇÃO", "paulo.assumpcao@gmail.com");
+INSERT INTO `desafio`.`users`( `name`, `email`) values ( "MARINA LIZ", "nina.marina@uol.com.br");
+
+CREATE TABLE `desafio`.`categories` (
+  `category_id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `type` char(1) NOT NULL,
+  PRIMARY KEY (`category_id`),
+  UNIQUE KEY `UNIQ_CATEGORY_TYPE` (`type`),
+  CONSTRAINT `type_upper` CHECK ((cast(`type` as char charset binary) = cast(upper(`type`) as char charset binary)))
+);
+
+INSERT INTO `desafio`.`categories`(`name`, `type` ) values ("ENTRADA","E");
+INSERT INTO `desafio`.`categories`(`name`, `type` ) values ("SAIDA","S");
+
+
+CREATE TABLE IF NOT EXISTS  `desafio`.`accounts` (
+   `account_id` INT(11) NOT NULL AUTO_INCREMENT,
+   `user_id` INT(11) NOT NULL,
+   `balance` DECIMAL(10,2) NOT NULL,
+   `income`  DECIMAL(10,2) NOT NULL,
+   `expense` DECIMAL(10,2) NOT NULL,
+    PRIMARY KEY (`account_id`),
+    FOREIGN KEY (`user_id`) REFERENCES  `desafio`.`users`(`user_id`) 
+    );
+insert into `desafio`.`accounts` ( `balance`, `income`, `expense`, `user_id`) values (10.00, 10.00,0.00,1);
+
+
+CREATE TABLE IF NOT EXISTS `desafio`.`transactions` (
+   `transaction_id` INT(11) NOT NULL AUTO_INCREMENT,
+   `account_id` INT(11) NOT NULL,
+   `value` DECIMAL(10,2) NOT NULL,
+   `type` CHAR NOT NULL,
+    `create_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY  (`transaction_id`),
+    FOREIGN KEY (`type`) REFERENCES  `desafio`.`categories`(`type`),
+	FOREIGN KEY (`account_id`) REFERENCES  `desafio`.`accounts`(`account_id`)
+);
+
+insert into `desafio`.`transactions` ( `account_id`, `value`, type) values (1, 10.00, "E" );
