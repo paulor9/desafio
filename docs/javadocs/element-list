@@ -1,0 +1,14 @@
+com.pra.desafio
+com.pra.desafio.configuration
+com.pra.desafio.controller
+com.pra.desafio.dao.accounts
+com.pra.desafio.dao.accounts.jdbc
+com.pra.desafio.dao.categories
+com.pra.desafio.dao.categories.jdbc
+com.pra.desafio.dao.transactions
+com.pra.desafio.dao.transactions.jdbc
+com.pra.desafio.dao.users
+com.pra.desafio.dao.users.jdbc
+com.pra.desafio.dto
+com.pra.desafio.exception
+com.pra.desafio.service
