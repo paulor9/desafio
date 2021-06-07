@@ -31,8 +31,8 @@ public class DesafioController {
 
     /**
      * API para criar um "user"
-     * @param "User data ( nome , email ) "
-     * @return Json with list of Transactions
+     * @param newUser User data ( nome , email ) "
+     * @return UsersDTO
      */
 
 
@@ -47,7 +47,7 @@ public class DesafioController {
 
     /**
      * API para retornar  o saldo de uma conta
-     * @param "Account ID"
+     * @param accountID  account id
      * @return Json with list of Transactions
      */
     @GetMapping("/desafio/api/v1/accountBalace/{accountID}")
@@ -59,7 +59,8 @@ public class DesafioController {
 
     /**
      * API para criar um conta (account ) de um  usuario
-     * @return  Transacao criada ( json)
+     * @param newAccount AccountsBasicDTO
+     * @return  AccountsDTO
      */
 
     @PostMapping("/desafio/api/v1/account")
@@ -86,12 +87,12 @@ public class DesafioController {
 
     /**
      * API para incluir um lancamento de credito (income ) em conta
-     * @return  Transacao criada ( json)
+     * @return  TransactionsDTO
      */
 
     @PostMapping("/desafio/api/v1/transaction/income")
     @ApiOperation(value = "create new transaction income")
-    public TransactionsDTO newTransactionIncome( @RequestBody TransactionsBasicDTO newPar) {
+    public TransactionsDTO newTransactionIncome( @ApiParam(value = "TransactionsBasicDTO") @RequestBody TransactionsBasicDTO newPar) {
         var acc = new TransactionsDTO(newPar.getAccountID(), newPar.getValue(), "E");
         return transactionsService.insertTransaction(acc);
     }

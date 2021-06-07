@@ -43,7 +43,7 @@ public class TransactionsDAOImp implements TransactionsDAO {
             ps.setInt(1, accountID);
             return ps;
         };
-        logger.debug("query {} ", QUERY_ALL_TRANSACTIONS_BY_ACCOUNT );
+        logger.debug("QUERY_ALL_TRANSACTIONS_BY_ACCOUNT  {} ", QUERY_ALL_TRANSACTIONS_BY_ACCOUNT );
         logger.debug(" account ID {}", accountID);
         return  jdbcTemplate.query(psc, new TransactionsRowMapper());
 
@@ -57,7 +57,7 @@ public class TransactionsDAOImp implements TransactionsDAO {
              ps.setString(3,endDate.getDateStr());
             return ps;
          };
-        logger.debug("query {} ",QUERY_ALL_TRANSACTIONS_BY_ACCOUNT_DATES_RANGE );
+        logger.debug("QUERY_ALL_TRANSACTIONS_BY_ACCOUNT_DATES_RANGE{} ",QUERY_ALL_TRANSACTIONS_BY_ACCOUNT_DATES_RANGE );
         logger.debug("Account ID {}", accountID);
         logger.debug("beginDate {}", beginDate.getDateStr());
         logger.debug("endDate {}", endDate.getDateStr());
@@ -72,7 +72,7 @@ public class TransactionsDAOImp implements TransactionsDAO {
             ps.setInt(1, tran.getAccountID());
             ps.setBigDecimal(2,tran.getValue());
             ps.setString (3, tran.getType());
-            logger.debug("query {} ", (QUERY_INSERT_TRANSACTION ));
+            logger.debug("QUERY_INSERT_TRANSACTION{} ", (QUERY_INSERT_TRANSACTION ));
             logger.debug("Account ID {}", tran.getAccountID());
             logger.debug("Value {}", tran.getValue());
             logger.debug("type  {}", tran.getType());

@@ -47,7 +47,7 @@ public class CategoriesDAOImp implements CategoriesDAO {
             ps.setString (2, cat.getType());
             return ps;
         };
-        logger.debug("query {} ", (QUERY_INSERT_CATEGORY));
+        logger.debug("QUERY_INSERT_CATEGORY  {} ", (QUERY_INSERT_CATEGORY));
         logger.debug("Name {}", cat.getName());
         logger.debug("Type {}", cat.getType());
 
@@ -58,7 +58,7 @@ public class CategoriesDAOImp implements CategoriesDAO {
             Number i = keyHolder.getKey();
             if ( i != null )
                 cat.setCategoryId(i.intValue());
-                logger.debug("id  {}", cat.getCategoryId());
+
         }
         return cat;
     }
@@ -72,7 +72,7 @@ public class CategoriesDAOImp implements CategoriesDAO {
             ps.setInt (3, cat.getCategoryId());
             return ps;
         };
-        logger.debug("query {} ", (QUERY_UPDATE_CATEGORY));
+        logger.debug("QUERY_UPDATE_CATEGORY  {} ", (QUERY_UPDATE_CATEGORY));
         logger.debug("Name {}", cat.getName());
         logger.debug("Type {}", cat.getType());
         logger.debug("id  {}", cat.getCategoryId());
@@ -87,7 +87,7 @@ public class CategoriesDAOImp implements CategoriesDAO {
             ps.setInt (1, id);
             return ps;
         };
-        logger.debug("query {} ", (QUERY_DELETE_CATEGORY));
+        logger.debug("QUERY_DELETE_CATEGORY  {} ", (QUERY_DELETE_CATEGORY));
         logger.debug("id {}", id);
         jdbcTemplate.update(psc);
     }
