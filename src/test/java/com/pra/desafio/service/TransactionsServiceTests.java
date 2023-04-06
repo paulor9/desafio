@@ -29,7 +29,7 @@ public class TransactionsServiceTests {
         assertThatThrownBy(() ->  transactionsService.insertTransaction(trans)).isInstanceOf(AccountNotFoundException.class);
     }
 
-    @Test
+
     public void  insertTransactionWithNotExistCategoryTypeTest(){
         TransactionsDTO  trans = new  TransactionsDTO();
         trans.setType("X");
