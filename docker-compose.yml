@@ -1,0 +1,17 @@
+services:
+ database:
+   container_name: my_sql_container
+   restart: always
+   image: mysql:latest
+   environment:
+     MYSQL_ROOT_PASSWORD: 3604
+     MYSQL_DATABASE: desafio
+     MYSQL_USER: paulo
+     MYSQL_PASSWORD: 3604
+   ports:
+     - 3306:3306
+   volumes:
+     - mysql_data:/var/lib/mysql
+
+volumes:
+ mysql_data:
