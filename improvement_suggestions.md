@@ -1,7 +1,7 @@
 # Improvement Suggestions for the Desafio Project
 
 ## 1. API Design and Documentation
-- Fix the typo in the endpoint `/desafio/api/v1/accountBalace/{accountID}` (should be "accountBalance")
+
 - Consider simplifying API paths by removing the verbose `/desafio/api/v1/` prefix
 - Add input validation using Bean Validation (JSR-380)
 - Ensure consistent use of parameter annotations (@Parameter) across all endpoints
