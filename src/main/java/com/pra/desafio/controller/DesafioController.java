@@ -4,8 +4,8 @@ import com.pra.desafio.dto.*;
 import com.pra.desafio.service.AccountService;
 import com.pra.desafio.service.TransactionsService;
 import com.pra.desafio.service.UsersService;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -37,8 +37,8 @@ public class DesafioController {
 
 
     @PostMapping("/desafio/api/v1/user")
-    @ApiOperation(value = "create new user  ")
-    public UsersDTO newUser(@ApiParam(value = "User data ( nome , email ) ")  @RequestBody UsersBasicDTO newUser) {
+    @Operation(summary = "create new user  ")
+    public UsersDTO newUser(@Parameter(description = "User data ( nome , email ) ")  @RequestBody UsersBasicDTO newUser) {
         logger.debug("newUser {} " , newUser.getName());
         var usr = new UsersDTO(newUser);
         return userService.insertUser(usr);
@@ -50,9 +50,9 @@ public class DesafioController {
      * @param accountID  account id
      * @return Json with list of Transactions
      */
-    @GetMapping("/desafio/api/v1/accountBalace/{accountID}")
-    @ApiOperation(value = "Return Account Balance ")
-    public BigDecimal getAccountBalance(@ApiParam(value = "Account ID")  @PathVariable int accountID) {
+    @GetMapping("/desafio/api/v1/accountBalance/{accountID}")
+    @Operation(summary = "Return Account Balance ")
+    public BigDecimal getAccountBalance(@Parameter(description = "Account ID")  @PathVariable int accountID) {
         return  accountService.getAccountBalance(accountID);
     }
 
@@ -64,7 +64,7 @@ public class DesafioController {
      */
 
     @PostMapping("/desafio/api/v1/account")
-    @ApiOperation(value = "create new account ")
+    @Operation(summary = "create new account ")
     public AccountsDTO newAccount( @RequestBody AccountsBasicDTO newAccount) {
         logger.debug("newAccount{} " , newAccount.getUserID());
         var acc = new AccountsDTO(newAccount);
@@ -78,7 +78,7 @@ public class DesafioController {
      * @return  Transacao criada ( json)
      */
     @PostMapping("/desafio/api/v1/transaction/expense")
-    @ApiOperation(value = "create new transaction expense  ")
+    @Operation(summary = "create new transaction expense  ")
     public TransactionsDTO newTransactionExpense( @RequestBody TransactionsBasicDTO newPar) {
         var acc = new TransactionsDTO(newPar.getAccountID(), newPar.getValue(), "S");
         return transactionsService.insertTransaction(acc);
@@ -91,8 +91,8 @@ public class DesafioController {
      */
 
     @PostMapping("/desafio/api/v1/transaction/income")
-    @ApiOperation(value = "create new transaction income")
-    public TransactionsDTO newTransactionIncome( @ApiParam(value = "TransactionsBasicDTO") @RequestBody TransactionsBasicDTO newPar) {
+    @Operation(summary = "create new transaction income")
+    public TransactionsDTO newTransactionIncome( @Parameter(description = "TransactionsBasicDTO") @RequestBody TransactionsBasicDTO newPar) {
         var acc = new TransactionsDTO(newPar.getAccountID(), newPar.getValue(), "E");
         return transactionsService.insertTransaction(acc);
     }
@@ -106,8 +106,8 @@ public class DesafioController {
      */
 
     @GetMapping("/desafio/api/v1/transanctions/{accountID}")
-    @ApiOperation(value = "Desafio Extrato", notes = "Retorna todos os  lançamentos de uma conta  ")
-    public List<TransactionsDTO> all( @ApiParam(value = "Account ID")  @PathVariable Integer accountID) {
+    @Operation(summary = "Desafio Extrato", description = "Retorna todos os  lançamentos de uma conta  ")
+    public List<TransactionsDTO> all( @Parameter(description = "Account ID")  @PathVariable Integer accountID) {
         return transactionsService.listAllAccountTransactions(accountID);
     }
 
@@ -120,15 +120,14 @@ public class DesafioController {
      */
 
     @GetMapping(value = "/desafio/api/v1/transactiosByRange", params = {"accountID", "beginDT", "endDT"} )
-    @ApiOperation(value = "Desafio Extrato", notes = "Retorna os lançamentos de uma conta por intervalo de datas ")
-    public List<TransactionsDTO> transactiosByRange( @ApiParam(value = "Account ID") @RequestParam Integer accountID,
-                                                     @ApiParam(value = "Begin Date (dd/mm/yyyy)") @RequestParam String beginDT,
-                                                     @ApiParam(value = "End Date (dd/mm/yyyy)") @RequestParam String endDT) {
+    @Operation(summary = "Desafio Extrato", description = "Retorna os lançamentos de uma conta por intervalo de datas ")
+    public List<TransactionsDTO> transactiosByRange( @Parameter(description = "Account ID") @RequestParam Integer accountID,
+                                                     @Parameter(description = "Begin Date (dd/mm/yyyy)") @RequestParam String beginDT,
+                                                     @Parameter(description = "End Date (dd/mm/yyyy)") @RequestParam String endDT) {
         var dtStart = new StringDateDTO(beginDT);
         var  dtEnd = new StringDateDTO(endDT);
         return transactionsService.listAllAccountTransactions(accountID,dtStart,dtEnd);
     }
-
 
 
 }
