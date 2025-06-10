@@ -1,20 +1,17 @@
 package com.pra.desafio.configuration;
 
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Contact;
+import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.info.License;
+import io.swagger.v3.oas.models.servers.Server;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import io.swagger.v3.oas.models.OpenAPI;
-import io.swagger.v3.oas.models.info.Info;
-import io.swagger.v3.oas.models.info.Contact;
-import io.swagger.v3.oas.models.info.License;
-import io.swagger.v3.oas.models.Components;
-import io.swagger.v3.oas.models.media.Content;
-import io.swagger.v3.oas.models.media.MediaType;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 @Configuration
+
 public class SwaggerConfig {
 
     @Bean
@@ -27,10 +24,13 @@ public class SwaggerConfig {
                         .termsOfService("urn:tos")
                         .contact(new Contact()
                                 .name("Paulo Assumpção")
-                                .url(null)
+                                .url("")
                                 .email("paulo.assumpcao@gmail.com"))
                         .license(new License()
                                 .name("Apache 2.0")
-                                .url("http://www.apache.org/licenses/LICENSE-2.0")));
+                                .url("http://www.apache.org/licenses/LICENSE-2.0")))
+                .servers(List.of(
+                        new Server().url("/").description("Default Server URL")
+                ));
     }
 }
