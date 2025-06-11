@@ -18,8 +18,8 @@ public class SwaggerConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                        .title("Desafio API Title")
-                        .description("Desafio API Description")
+                        .title("Financial Management API")
+                        .description("API for managing users, accounts, and financial transactions. Provides endpoints for creating users, accounts, recording income and expenses, and retrieving transaction history.")
                         .version("1.0")
                         .termsOfService("urn:tos")
                         .contact(new Contact()

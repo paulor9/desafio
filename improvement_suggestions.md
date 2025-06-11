@@ -1,7 +1,7 @@
 # Improvement Suggestions for the Desafio Project
 
 ## 1. API Design and Documentation
-- Fix the typo in the endpoint `/desafio/api/v1/accountBalace/{accountID}` (should be "accountBalance")
+
 - Consider simplifying API paths by removing the verbose `/desafio/api/v1/` prefix
 - Add input validation using Bean Validation (JSR-380)
 - Ensure consistent use of parameter annotations (@Parameter) across all endpoints
@@ -21,7 +21,7 @@
 - Add more comprehensive logging, especially for important operations and errors
 
 ## 3. Exception Handling
-- Refactor GlobalExceptionHandler to reduce code duplication
+-
 - Fix inconsistent method names in exception handlers
 - Fix the HTTP status code inconsistency for AccountAlreadyExistException (returns NOT_FOUND but sets error code to "CONFLICT")
 - Add a handler for generic exceptions (Exception.class)
@@ -34,7 +34,7 @@
   - DAOs
   - Exception handlers
   - Edge cases and error scenarios
-- Add integration tests for API endpoints
+
 - Consider implementing test containers for database tests
 - Add performance tests for critical operations
 
@@ -55,7 +55,7 @@
 
 ## 7. DevOps and Deployment
 - Update Dockerfile to use Java 17 (currently using Java 11)
-- Add health check endpoints
+
 - Implement metrics collection
 - Consider containerization with Docker Compose for local development
 - Add CI/CD pipeline configuration (already has azure-pipelines.yml)
